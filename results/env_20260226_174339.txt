@@ -1,0 +1,102 @@
+=== TIMESTAMP ===
+2026-02-26T17:43:39+00:00
+
+=== HOST ===
+vllm-inference
+Linux vllm-inference 6.8.0-90-generic #91-Ubuntu SMP PREEMPT_DYNAMIC Tue Nov 18 14:14:30 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+
+=== GIT ===
+9b2cb9564644baa26be98bddc8e19ba6b692ab2f
+
+=== CONTAINER ===
+PRETTY_NAME="Ubuntu 24.04.3 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.3 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+PATH=/usr/local/cuda/bin:/home/zoro/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/zoro/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/zoro/.vscode-server/cli/servers/Stable-c3a26841a84f20dfe0850d0a5a9bd01da4f003ea/server/bin/remote-cli:/home/zoro/miniforge3/bin:/home/zoro/miniforge3/condabin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+=== PYTHON ===
+/home/zoro/miniforge3/bin/python
+Python 3.13.12
+pip 26.0.1 from /home/zoro/miniforge3/lib/python3.13/site-packages/pip (python 3.13)
+
+=== NVIDIA / GPU ===
+/usr/bin/nvidia-smi
+GPU 0: NVIDIA B300 SXM6 AC (UUID: GPU-53ed8fd9-9f5a-9c77-430d-095ad4fc860d)
+GPU 1: NVIDIA B300 SXM6 AC (UUID: GPU-adecbd14-4768-00f8-a2fa-697ced804a8d)
+GPU 2: NVIDIA B300 SXM6 AC (UUID: GPU-bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a)
+GPU 3: NVIDIA B300 SXM6 AC (UUID: GPU-90fb226c-3937-2448-1052-2e12282a61b9)
+GPU 4: NVIDIA B300 SXM6 AC (UUID: GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed)
+GPU 5: NVIDIA B300 SXM6 AC (UUID: GPU-fd75ec1b-92a4-ca93-a3ad-976565948d0e)
+GPU 6: NVIDIA B300 SXM6 AC (UUID: GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf)
+GPU 7: NVIDIA B300 SXM6 AC (UUID: GPU-40e00845-d89c-1393-2c32-a2dca3ee9442)
+/usr/bin/nvidia-smi
+Thu Feb 26 17:43:39 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA B300 SXM6 AC            On  |   00000000:04:00.0 Off |                    0 |
+| N/A   35C    P0            136W / 1100W |       4MiB / 275040MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA B300 SXM6 AC            On  |   00000000:05:00.0 Off |                    0 |
+| N/A   40C    P0            139W / 1100W |       4MiB / 275040MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA B300 SXM6 AC            On  |   00000000:06:00.0 Off |                    0 |
+| N/A   33C    P0            130W / 1100W |       4MiB / 275040MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA B300 SXM6 AC            On  |   00000000:07:00.0 Off |                    0 |
+| N/A   39C    P0            140W / 1100W |       4MiB / 275040MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   4  NVIDIA B300 SXM6 AC            On  |   00000000:08:00.0 Off |                    0 |
+| N/A   56C    P0           1057W / 1100W |  261968MiB / 275040MiB |    100%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   5  NVIDIA B300 SXM6 AC            On  |   00000000:09:00.0 Off |                    0 |
+| N/A   67C    P0           1064W / 1100W |  261968MiB / 275040MiB |    100%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   6  NVIDIA B300 SXM6 AC            On  |   00000000:0A:00.0 Off |                    0 |
+| N/A   56C    P0           1069W / 1100W |  261968MiB / 275040MiB |    100%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   7  NVIDIA B300 SXM6 AC            On  |   00000000:0B:00.0 Off |                    0 |
+| N/A   64C    P0           1072W / 1100W |  261968MiB / 275040MiB |    100%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    4   N/A  N/A         4060708      C   VLLM::Worker_TP0                      26195... |
+|    5   N/A  N/A         4060709      C   VLLM::Worker_TP1                      26195... |
+|    6   N/A  N/A         4060710      C   VLLM::Worker_TP2                      26195... |
+|    7   N/A  N/A         4060711      C   VLLM::Worker_TP3                      26195... |
++-----------------------------------------------------------------------------------------+
+
+=== CUDA ===
+/usr/local/cuda/bin/nvcc
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2025 NVIDIA Corporation
+Built on Wed_Aug_20_01:58:59_PM_PDT_2025
+Cuda compilation tools, release 13.0, V13.0.88
+Build cuda_13.0.r13.0/compiler.36424714_0
+

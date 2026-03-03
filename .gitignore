@@ -1,0 +1,21 @@
+# Third-party
+cuda-samples/
+
+# Build artifacts
+build/
+**/build/
+*.o
+*.so
+*.a
+
+# Logs temporales
+*.log
+
+# Python
+__pycache__/
+*.pyc
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake

@@ -1,0 +1,20 @@
+name: bw
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip=24.*
+  - numpy=1.26.*
+  - pandas=2.2.*
+  - matplotlib=3.9.*
+  - pyyaml=6.0.*
+  - rich=13.*
+  - git=2.45.*
+  - cmake=3.30.*
+  - ninja=1.12.*
+  - pkg-config=0.29.*
+  # Optional: if you use JAX/Torch/Triton, add them explicitly later
+  # Keeping the base env small is good practice
+  - pip:
+      - pycuda==2024.1
+      - nvidia-ml-py==12.535.161
