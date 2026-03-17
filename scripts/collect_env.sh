@@ -1,12 +1,20 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-OUT="${1:-results/env_$(date +%Y%m%d_%H%M%S).txt}"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
+DEFAULT_OUT="${PROJECT_ROOT}/results/system/env_$(date +%Y%m%d_%H%M%S).txt"
+OUT="${1:-${DEFAULT_OUT}}"
 mkdir -p "$(dirname "$OUT")"
 
 {
   echo "=== TIMESTAMP ==="
   date -Is
+  echo
+
+  echo "=== PROJECT ROOT ==="
+  echo "${PROJECT_ROOT}"
   echo
 
   echo "=== HOST ==="
@@ -15,29 +23,37 @@ mkdir -p "$(dirname "$OUT")"
   echo
 
   echo "=== GIT ==="
-  git rev-parse HEAD 2>/dev/null || echo "no git"
-  git status --porcelain 2>/dev/null || true
+  git -C "${PROJECT_ROOT}" rev-parse HEAD 2>/dev/null || echo "no git"
+  git -C "${PROJECT_ROOT}" status --porcelain 2>/dev/null || true
   echo
 
-  echo "=== CONTAINER ==="
-  cat /etc/os-release || true
+  echo "=== CONTAINER / OS ==="
+  cat /etc/os-release 2>/dev/null || true
   echo "PATH=$PATH"
   echo
 
   echo "=== PYTHON ==="
-  which python || true
+  command -v python || true
   python -V || true
   pip -V || true
   echo
 
   echo "=== NVIDIA / GPU ==="
-  command -v nvidia-smi && nvidia-smi -L || echo "nvidia-smi not found"
-  command -v nvidia-smi && nvidia-smi || true
+  if command -v nvidia-smi >/dev/null 2>&1; then
+    nvidia-smi -L || true
+    nvidia-smi || true
+  else
+    echo "nvidia-smi not found"
+  fi
   echo
 
   echo "=== CUDA ==="
-  command -v nvcc && nvcc --version || echo "nvcc not found"
+  if command -v nvcc >/dev/null 2>&1; then
+    nvcc --version || true
+  else
+    echo "nvcc not found"
+  fi
   echo
-
 } | tee "$OUT"
+
 echo "[collect_env] wrote $OUT"

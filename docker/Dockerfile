@@ -1,5 +1,5 @@
 # Pinned CUDA base image (do NOT use 'latest' for reproducibility)
-FROM nvidia/cuda:12.4.1-devel-ubuntu22.04
+FROM nvidia/cuda:13.0.0-devel-ubuntu24.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -43,6 +43,6 @@ ENV CONDA_DEFAULT_ENV=bw
 ENV PATH=/home/${USERNAME}/micromamba/envs/bw/bin:$PATH
 
 # Optional: basic sanity tools
-RUN python -V && pip -V
+RUN python -V && pip -V && nvcc --version
 
 CMD [ "bash" ]

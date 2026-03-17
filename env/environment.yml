@@ -13,6 +13,7 @@ dependencies:
   - cmake=3.30.*
   - ninja=1.12.*
   - pkg-config=0.29.*
+  - make
   # Optional: if you use JAX/Torch/Triton, add them explicitly later
   # Keeping the base env small is good practice
   - pip:

@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "[post_create] Python:"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "${PROJECT_ROOT}"
+
+# shellcheck source=/dev/null
+source "${PROJECT_ROOT}/scripts/env/env.sh"
+
+echo "[post_create] Validating environment..."
 python -V
+pip -V
+nvcc --version || true
 
-echo "[post_create] Micromamba envs:"
-micromamba env list || true
+bw_env_summary || true
+bash "${PROJECT_ROOT}/scripts/env/check_requirements.sh"
 
-echo "[post_create] Git config (safe defaults):"
-git config --global init.defaultBranch main
-git config --global pull.rebase false
-
-echo "[post_create] Done."
+echo "[post_create] Environment ready."
