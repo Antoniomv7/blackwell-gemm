@@ -21,8 +21,21 @@ RUN curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/${MAMBA_VERSION} \
 ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=1000
-RUN groupadd --gid ${USER_GID} ${USERNAME} \
- && useradd --uid ${USER_UID} --gid ${USER_GID} -m ${USERNAME} -s /bin/bash
+
+RUN if ! getent group ${USER_GID} >/dev/null 2>&1; then \
+        groupadd --gid ${USER_GID} ${USERNAME}; \
+    else \
+        echo "Using existing group with GID ${USER_GID}"; \
+    fi && \
+    if id -u ${USERNAME} >/dev/null 2>&1; then \
+        echo "User ${USERNAME} already exists"; \
+    elif getent passwd ${USER_UID} >/dev/null 2>&1; then \
+        FALLBACK_UID="$(awk -F: 'BEGIN{u=2000} {used[$3]=1} END{while(used[u])u++; print u}' /etc/passwd)"; \
+        echo "UID ${USER_UID} already exists, creating ${USERNAME} with fallback UID ${FALLBACK_UID}"; \
+        useradd --uid "${FALLBACK_UID}" --gid ${USER_GID} -m ${USERNAME} -s /bin/bash; \
+    else \
+        useradd --uid ${USER_UID} --gid ${USER_GID} -m ${USERNAME} -s /bin/bash; \
+    fi
 
 # Shell init for micromamba for the vscode user
 USER ${USERNAME}
@@ -36,7 +49,9 @@ WORKDIR /workspaces/blackwell-gemm
 # We copy only environment.yml first to maximize layer caching.
 COPY --chown=${USERNAME}:${USERNAME} env/environment.yml /tmp/environment.yml
 RUN micromamba create -y -n bw -f /tmp/environment.yml && \
-    micromamba clean -a -y
+    micromamba clean -a -y && \
+    chmod o+rx /home/${USERNAME} && \
+    chmod -R a+rX /home/${USERNAME}/micromamba
 
 # Make the env the default
 ENV CONDA_DEFAULT_ENV=bw

@@ -17,5 +17,4 @@ dependencies:
   # Optional: if you use JAX/Torch/Triton, add them explicitly later
   # Keeping the base env small is good practice
   - pip:
-      - pycuda==2024.1
       - nvidia-ml-py==12.535.161

@@ -40,8 +40,13 @@ inline DeviceInfo query_device_info(int device = 0) {
     info.minor = p.minor;
     info.sm_count = p.multiProcessorCount;
     info.warp_size = p.warpSize;
-    info.clock_khz = p.clockRate;
-    info.mem_clock_khz = p.memoryClockRate;
+    int sm_clock_khz = 0;
+    int mem_clock_khz = 0;
+    cudaDeviceGetAttribute(&sm_clock_khz, cudaDevAttrClockRate, device);
+    cudaDeviceGetAttribute(&mem_clock_khz, cudaDevAttrMemoryClockRate, device);
+
+    info.clock_khz = sm_clock_khz;
+    info.mem_clock_khz = mem_clock_khz;
     info.mem_bus_width_bits = p.memoryBusWidth;
     info.total_global_mem = static_cast<std::size_t>(p.totalGlobalMem);
     info.l2_bytes = static_cast<std::size_t>(p.l2CacheSize);

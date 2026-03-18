@@ -36,7 +36,7 @@ BUILD_DIR     := $(PROJECT_ROOT)/build
 
 CUDA_ARCH ?= sm_103
 
-INCLUDES := -I$(PROJECT_ROOT) -I$(BENCH_DIR) -I$(COMMON_DIR)
+INCLUDES := -I$(PROJECT_ROOT) -I$(BENCH_DIR) -I$(COMMON_DIR) -I/usr/local/cuda/include
 
 NVCC_STD_FLAGS   := -std=c++17 -O3 -lineinfo
 NVCC_ARCH_FLAGS  := -arch=$(CUDA_ARCH)
@@ -45,7 +45,7 @@ NVCC_LIBS        := -lcudart
 
 CXX_STD_FLAGS    := -std=c++17 -O3
 CXX_WARN_FLAGS   := -Wall -Wextra -Wpedantic
-CXX_LIBS         :=
+CXX_LIBS         := -L/usr/local/cuda/lib64 -lcudart
 
 NVCCFLAGS := $(NVCC_STD_FLAGS) $(NVCC_ARCH_FLAGS) $(NVCC_WARN_FLAGS) $(INCLUDES)
 CXXFLAGS  := $(CXX_STD_FLAGS) $(CXX_WARN_FLAGS) $(INCLUDES)
