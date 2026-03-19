@@ -6,9 +6,10 @@
 #include <cuda_runtime.h>
 
 #include <filesystem>
+#include <fstream>
 #include <iostream>
+#include <stdexcept>
 #include <string>
-#include <vector>
 
 int main(int argc, char** argv) {
     try {
@@ -29,6 +30,11 @@ int main(int argc, char** argv) {
         }
 
         if (!csv_path.empty()) {
+            const std::filesystem::path p(csv_path);
+            if (p.has_parent_path()) {
+                std::filesystem::create_directories(p.parent_path());
+            }
+
             bw::CsvWriter writer(csv_path, false);
             writer.write_row(bw::device_info_csv_header());
             writer.write_row(bw::device_info_csv_row(info));

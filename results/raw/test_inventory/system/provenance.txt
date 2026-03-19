@@ -1,0 +1,77 @@
+timestamp=2026-03-19T14:41:32+01:00
+campaign_id=test_inventory
+root_dir=/mnt/c/Users/hp01/Desktop/blackwell-gemm
+hostname=pchp01
+pwd=/mnt/c/Users/hp01/Desktop/blackwell-gemm
+user=hp01
+cuda_visible_devices=unset
+blackwell_gpu_index=unset
+git_commit=HEAD
+unknown
+git_status_begin
+?? ../../.VirtualBox/
+?? ../../.Xilinx/
+?? ../../.bash_history
+?? ../../.codex/
+?? ../../.config/
+?? ../../.dbus-keyrings/
+?? ../../.gitconfig
+?? ../../.gitignore
+?? ../../.hgexternalcache/
+?? ../../.lesshst
+?? ../../.nbi/
+?? ../../.nx/
+?? ../../.oracle_jre_usage/
+?? ../../.otk/
+?? ../../.python_history
+?? ../../.ssh/
+?? ../../.stm32cubeide/
+?? ../../.stm32cubemx/
+?? ../../.stmcube/
+?? ../../.stmcufinder/
+?? ../../.viminfo
+?? ../../.vscode/
+?? ../../AppData/
+?? "../../Application Data/"
+?? "../../Configuraci\303\263n local"
+?? ../../Contacts/
+?? ../../Cookies
+?? "../../Datos de programa"
+?? ../
+?? ../../Documents/
+?? ../../Downloads/
+?? "../../Entorno de red"
+?? ../../Favorites/
+?? ../../Impresoras
+?? ../../Links/
+?? "../../Men\303\272 Inicio"
+?? "../../Mis documentos"
+?? ../../Music/
+?? ../../NTUSER.DAT
+?? ../../NTUSER.DAT{58643f52-e8c2-11ef-aae9-28c5d2841c3b}.TxR.blf
+?? ../../NTUSER.DAT{58643f53-e8c2-11ef-aae9-28c5d2841c3b}.TM.blf
+?? ../../NTUSER.DAT{58643f53-e8c2-11ef-aae9-28c5d2841c3b}.TMContainer00000000000000000001.regtrans-ms
+?? ../../NTUSER.DAT{58643f53-e8c2-11ef-aae9-28c5d2841c3b}.TMContainer00000000000000000002.regtrans-ms
+?? ../../NTUSER.DAT{a5cd69ca-8a0b-11ee-aaca-28c5d2841c3b}.TM.blf
+?? ../../NTUSER.DAT{a5cd69ca-8a0b-11ee-aaca-28c5d2841c3b}.TMContainer00000000000000000001.regtrans-ms
+?? ../../NTUSER.DAT{a5cd69ca-8a0b-11ee-aaca-28c5d2841c3b}.TMContainer00000000000000000002.regtrans-ms
+?? ../../OneDrive/
+?? ../../Pictures/
+?? ../../Plantillas
+?? ../../PycharmProjects/
+?? ../../Reciente
+?? ../../STMicroelectronics/
+?? "../../Saved Games/"
+?? ../../Searches/
+?? ../../SendTo
+?? ../../Videos/
+?? "../../VirtualBox VMs/"
+?? ../../jaer-dist/
+?? ../../ntuser.dat.LOG1
+?? ../../ntuser.dat.LOG2
+?? ../../ntuser.ini
+?? ../../test_addr_timestamp-DVS128.csv
+?? ../../test_addr_timestamp.csv
+?? ../../usb_driver/
+?? ../../vscode-remote-wsl/
+git_status_end
