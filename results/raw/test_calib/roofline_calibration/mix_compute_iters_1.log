@@ -1,0 +1,25 @@
+# MB3 mem-compute mix
+# NOTE: ai_nominal and bytes_effective are analytical model quantities.
+# NOTE: bw_*_gbs is derived from the analytical byte model, not from HW counters.
+device=0
+n=67108864
+bytes_in=268435456
+bytes_out=3031040
+bytes_effective=2.71466e+08
+thread_count=757760
+block=256
+grid=2960
+compute_iters=1
+ai_nominal=0.494417
+warmup=5
+reps=20
+best_ms=0.128928
+mean_ms=0.133763
+median_ms=0.133424
+best_gflops=1041.03
+mean_gflops=1003.4
+median_gflops=1005.95
+bw_best_gbs=2105.57
+bw_mean_gbs=2029.46
+bw_median_gbs=2034.62
+[mb3_mem_compute_mix] Wrote CSV: /home/zoro/work/blackwell-gemm/results/raw/test_calib/roofline_calibration/mix_compute_iters_1.csv

@@ -1,0 +1,17 @@
+timestamp=2026-03-19T18:19:48+00:00
+campaign_id=test_calib
+root_dir=/home/zoro/work/blackwell-gemm
+hostname=vllm-inference
+pwd=/home/zoro/work/blackwell-gemm
+user=zoro
+cuda_visible_devices=unset
+blackwell_gpu_index=4
+git_commit=2051eb65a03d55419a20b6289cd1e67914ce72ec
+git_status_begin
+ M benchmarks/memory/mb10_ai_control.cu
+ M benchmarks/memory/mb3_mem_compute_mix.cu
+?? bin/mb10_ai_control
+?? bin/mb3_mem_compute_mix
+?? results/raw/test_calib/
+?? scripts/run/run_roofline_calibration.sh
+git_status_end

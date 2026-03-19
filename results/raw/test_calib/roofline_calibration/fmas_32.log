@@ -1,0 +1,23 @@
+# MB10 AI-controlled kernel
+# NOTE: ai_nominal and bytes_effective are analytical model quantities.
+# NOTE: bw_*_gbs is derived from the analytical byte model, not from HW counters.
+device=0
+n=67108864
+bytes_per_array=268435456
+bytes_effective=5.36871e+08
+block=256
+grid=2960
+fmas_per_load=32
+ai_nominal=8
+warmup=5
+reps=20
+best_ms=0.325344
+mean_ms=0.32739
+median_ms=0.327744
+best_gflops=13201.3
+mean_gflops=13118.8
+median_gflops=13104.6
+bw_best_gbs=1650.16
+bw_mean_gbs=1639.85
+bw_median_gbs=1638.08
+[mb10_ai_control] Wrote CSV: /home/zoro/work/blackwell-gemm/results/raw/test_calib/roofline_calibration/fmas_32.csv
