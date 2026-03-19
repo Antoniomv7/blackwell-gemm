@@ -1,77 +1,30 @@
-timestamp=2026-03-19T14:41:32+01:00
+timestamp=2026-03-19T16:48:56+00:00
 campaign_id=test_inventory
-root_dir=/mnt/c/Users/hp01/Desktop/blackwell-gemm
-hostname=pchp01
-pwd=/mnt/c/Users/hp01/Desktop/blackwell-gemm
-user=hp01
+root_dir=/home/zoro/work/blackwell-gemm
+hostname=vllm-inference
+pwd=/home/zoro/work/blackwell-gemm
+user=zoro
 cuda_visible_devices=unset
-blackwell_gpu_index=unset
-git_commit=HEAD
-unknown
+blackwell_gpu_index=4
+git_commit=8caa354a855f81366c4f9078de0284bad1018b0c
 git_status_begin
-?? ../../.VirtualBox/
-?? ../../.Xilinx/
-?? ../../.bash_history
-?? ../../.codex/
-?? ../../.config/
-?? ../../.dbus-keyrings/
-?? ../../.gitconfig
-?? ../../.gitignore
-?? ../../.hgexternalcache/
-?? ../../.lesshst
-?? ../../.nbi/
-?? ../../.nx/
-?? ../../.oracle_jre_usage/
-?? ../../.otk/
-?? ../../.python_history
-?? ../../.ssh/
-?? ../../.stm32cubeide/
-?? ../../.stm32cubemx/
-?? ../../.stmcube/
-?? ../../.stmcufinder/
-?? ../../.viminfo
-?? ../../.vscode/
-?? ../../AppData/
-?? "../../Application Data/"
-?? "../../Configuraci\303\263n local"
-?? ../../Contacts/
-?? ../../Cookies
-?? "../../Datos de programa"
-?? ../
-?? ../../Documents/
-?? ../../Downloads/
-?? "../../Entorno de red"
-?? ../../Favorites/
-?? ../../Impresoras
-?? ../../Links/
-?? "../../Men\303\272 Inicio"
-?? "../../Mis documentos"
-?? ../../Music/
-?? ../../NTUSER.DAT
-?? ../../NTUSER.DAT{58643f52-e8c2-11ef-aae9-28c5d2841c3b}.TxR.blf
-?? ../../NTUSER.DAT{58643f53-e8c2-11ef-aae9-28c5d2841c3b}.TM.blf
-?? ../../NTUSER.DAT{58643f53-e8c2-11ef-aae9-28c5d2841c3b}.TMContainer00000000000000000001.regtrans-ms
-?? ../../NTUSER.DAT{58643f53-e8c2-11ef-aae9-28c5d2841c3b}.TMContainer00000000000000000002.regtrans-ms
-?? ../../NTUSER.DAT{a5cd69ca-8a0b-11ee-aaca-28c5d2841c3b}.TM.blf
-?? ../../NTUSER.DAT{a5cd69ca-8a0b-11ee-aaca-28c5d2841c3b}.TMContainer00000000000000000001.regtrans-ms
-?? ../../NTUSER.DAT{a5cd69ca-8a0b-11ee-aaca-28c5d2841c3b}.TMContainer00000000000000000002.regtrans-ms
-?? ../../OneDrive/
-?? ../../Pictures/
-?? ../../Plantillas
-?? ../../PycharmProjects/
-?? ../../Reciente
-?? ../../STMicroelectronics/
-?? "../../Saved Games/"
-?? ../../Searches/
-?? ../../SendTo
-?? ../../Videos/
-?? "../../VirtualBox VMs/"
-?? ../../jaer-dist/
-?? ../../ntuser.dat.LOG1
-?? ../../ntuser.dat.LOG2
-?? ../../ntuser.ini
-?? ../../test_addr_timestamp-DVS128.csv
-?? ../../test_addr_timestamp.csv
-?? ../../usb_driver/
-?? ../../vscode-remote-wsl/
+ M results/raw/test_inventory/system/environment.txt
+ M results/raw/test_inventory/system/provenance.txt
+ D results/raw/test_inventory/system/selected_device.txt
+ M scripts/env/env.sh
+ M scripts/run/run_inventory.sh
+?? bin/mb31_inventory
+?? results/raw/mb31_20260319_164150/
+?? results/raw/test_inventory/system/collect_env.log
+?? results/raw/test_inventory/system/collect_env.txt
+?? results/raw/test_inventory/system/device_inventory.csv
+?? results/raw/test_inventory/system/device_inventory.log
+?? results/raw/test_inventory/system/device_inventory.txt
+?? results/raw/test_inventory/system/gpu_list.txt
+?? results/raw/test_inventory/system/nvidia_smi.txt
+?? results/raw/test_inventory/system/nvidia_smi_q.txt
+?? results/raw/test_inventory/system/selected_logical_device.txt
+?? results/raw/test_inventory/system/selected_physical_device.txt
+?? results/raw/test_inventory/system/topo_matrix.txt
+?? results/raw/test_inventory/system/topology.txt
 git_status_end

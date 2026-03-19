@@ -58,9 +58,11 @@ export POWER_SAMPLE_MS="${POWER_SAMPLE_MS:-100}"
 export CUDA_ARCH="${CUDA_ARCH:-sm_103}"
 
 # User-controlled GPU selection:
-# - if already set by the user, keep it
-# - otherwise leave unset until set_cuda_device.sh decides
-export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-}"
+# - if already set by the user, preserve it
+# - otherwise keep it truly unset
+if [[ -n "${CUDA_VISIBLE_DEVICES+x}" ]]; then
+  export CUDA_VISIBLE_DEVICES
+fi
 
 # Default compiler flags
 export NVCC_COMMON_FLAGS="${NVCC_COMMON_FLAGS:--O3 -std=c++17 -lineinfo}"
