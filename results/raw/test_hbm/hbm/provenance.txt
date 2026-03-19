@@ -1,0 +1,15 @@
+timestamp=2026-03-19T17:21:36+00:00
+campaign_id=test_hbm
+root_dir=/home/zoro/work/blackwell-gemm
+hostname=vllm-inference
+pwd=/home/zoro/work/blackwell-gemm
+user=zoro
+cuda_visible_devices=unset
+blackwell_gpu_index=4
+git_commit=c52862d4b96c93667429a43a65fbadec17853c43
+git_status_begin
+ M benchmarks/memory/mb34_stream_triad.cu
+?? bin/mb34_stream_triad
+?? results/raw/test_hbm/
+?? scripts/run/run_hbm_ceiling.sh
+git_status_end

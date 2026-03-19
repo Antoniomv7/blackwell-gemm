@@ -1,0 +1,16 @@
+# MB3.4-A STREAM triad
+device=0
+n=67108864
+bytes_per_array=268435456
+effective_bytes=8.05306e+08
+block=512
+grid=2960
+warmup=5
+reps=20
+best_ms=0.128928
+mean_ms=0.130525
+median_ms=0.131008
+bw_best_gbs=6246.17
+bw_mean_gbs=6169.76
+bw_median_gbs=6147
+[mb34_stream_triad] Wrote CSV: /home/zoro/work/blackwell-gemm/results/raw/test_hbm/hbm/n67108864_b512.csv
