@@ -1,0 +1,12 @@
+{
+  "hbm_ceiling_gbs": 6503.64,
+  "compute_ceiling_gflops": 16330.2,
+  "ridge_point_flops_per_byte": 2.510932339428382,
+  "hbm_source_csv": "/home/zoro/work/blackwell-gemm/results/raw/test_hbm/hbm/hbm_stream_triad.csv",
+  "ai_source_csv": "/home/zoro/work/blackwell-gemm/results/raw/test_calib/roofline_calibration/ai_sweep.csv",
+  "mix_source_csv": "/home/zoro/work/blackwell-gemm/results/raw/test_calib/roofline_calibration/mem_compute_mix.csv",
+  "compute_ceiling_source": "mem_compute_mix",
+  "num_points": 15,
+  "num_ai_points": 8,
+  "num_mix_points": 7
+}

@@ -1,0 +1,21 @@
+Campaign summary: test_phase5
+
+HBM ceiling [GB/s]: 6503.640
+Compute ceiling [GFLOP/s]: 16330.200
+Ridge point [FLOP/B]: 2.510932
+Compute ceiling source: mem_compute_mix
+Total roofline points: 15
+
+Series: ai_sweep
+  points: 8
+  best point: mb10_ai_control | 128
+  best perf [GFLOP/s]: 16069.600
+  AI [FLOP/B]: 32.000000
+  efficiency vs roofline: 0.984042
+
+Series: mem_compute_mix
+  points: 7
+  best point: mb3_mem_compute_mix | 64
+  best perf [GFLOP/s]: 16330.200
+  AI [FLOP/B]: 31.642700
+  efficiency vs roofline: 1.000000

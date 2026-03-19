@@ -1,0 +1,16 @@
+timestamp=2026-03-19T18:54:07+00:00
+campaign_id=test_phase5
+root_dir=/home/zoro/work/blackwell-gemm
+hostname=vllm-inference
+pwd=/home/zoro/work/blackwell-gemm
+user=zoro
+cuda_visible_devices=unset
+blackwell_gpu_index=unset
+git_commit=f3b3f252b4053d88c2b7c3dd01a61141bcb18ca9
+git_status_begin
+ M analysis/plot_roofline.py
+?? analysis/build_empirical_roofline.py
+?? analysis/summarize_campaign.py
+?? results/processed/test_phase5/
+?? scripts/run/run_roofline_analysis.sh
+git_status_end

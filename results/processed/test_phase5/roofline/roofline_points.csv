@@ -1,0 +1,16 @@
+series,benchmark,label,ai_flops_per_byte,perf_gflops,best_ms,mean_ms,median_ms,bw_best_gbs,bw_mean_gbs,bw_median_gbs,roofline_pred_gflops,efficiency_vs_roofline,regime
+ai_sweep,mb10_ai_control,mb10_ai_control | 1,0.25,828.75,0.161952,0.164541,0.164432,3315.0,3262.84,3265.0,1625.91,0.509714559846486,memory-bound
+ai_sweep,mb10_ai_control,mb10_ai_control | 2,0.5,1625.38,0.165152,0.168253,0.168128,3250.77,3190.86,3193.23,3251.82,0.4998370143488877,memory-bound
+ai_sweep,mb10_ai_control,mb10_ai_control | 4,1.0,3126.58,0.171712,0.174045,0.173424,3126.58,3084.67,3095.71,6503.64,0.48074309156103345,memory-bound
+ai_sweep,mb10_ai_control,mb10_ai_control | 8,2.0,5705.57,0.188192,0.190438,0.190784,2852.78,2819.13,2814.02,13007.28,0.438644359158871,memory-bound
+ai_sweep,mb10_ai_control,mb10_ai_control | 16,4.0,9455.95,0.227104,0.229899,0.22976,2363.99,2335.24,2336.66,16330.2,0.5790467967324344,compute-bound
+ai_sweep,mb10_ai_control,mb10_ai_control | 32,8.0,13201.3,0.325344,0.32739,0.327744,1650.16,1639.85,1638.08,16330.2,0.8083979375635325,compute-bound
+ai_sweep,mb10_ai_control,mb10_ai_control | 64,16.0,15090.0,0.569248,0.571112,0.571264,943.123,940.045,939.795,16330.2,0.9240548186795018,compute-bound
+ai_sweep,mb10_ai_control,mb10_ai_control | 128,32.0,16069.6,1.06909,1.07335,1.07336,502.177,500.185,500.178,16330.2,0.9840418365972248,compute-bound
+mem_compute_mix,mb3_mem_compute_mix,mb3_mem_compute_mix | 1,0.494417,1041.03,0.128928,0.133763,0.133424,2105.57,2029.46,2034.62,3215.5101778800004,0.3237526682892839,memory-bound
+mem_compute_mix,mb3_mem_compute_mix,mb3_mem_compute_mix | 2,0.988835,2010.69,0.133504,0.138792,0.1392,2033.4,1955.92,1950.19,6431.026859400001,0.3126545797365232,memory-bound
+mem_compute_mix,mb3_mem_compute_mix,mb3_mem_compute_mix | 4,1.97767,3786.33,0.141792,0.146946,0.146928,1914.54,1847.39,1847.62,12862.053718800002,0.29437989319432384,memory-bound
+mem_compute_mix,mb3_mem_compute_mix,mb3_mem_compute_mix | 8,3.95534,6725.68,0.159648,0.163406,0.16184,1700.41,1661.3,1677.38,16330.2,0.41185533551334336,compute-bound
+mem_compute_mix,mb3_mem_compute_mix,mb3_mem_compute_mix | 16,7.91068,10694.6,0.2008,0.202853,0.202528,1351.92,1338.24,1340.39,16330.2,0.6548970618853412,compute-bound
+mem_compute_mix,mb3_mem_compute_mix,mb3_mem_compute_mix | 32,15.8214,14557.2,0.29504,0.29623,0.296688,920.101,916.403,914.99,16330.2,0.8914281515229452,compute-bound
+mem_compute_mix,mb3_mem_compute_mix,mb3_mem_compute_mix | 64,31.6427,16330.2,0.526016,0.527565,0.527024,516.08,514.565,515.093,16330.2,1.0,compute-bound
