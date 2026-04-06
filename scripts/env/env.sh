@@ -8,8 +8,8 @@ set -euo pipefail
 
 # Resolve project root from this file location:
 # scripts/env/env.sh -> project root = ../..
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+ENV_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "${ENV_SCRIPT_DIR}/../.." && pwd)"
 
 # Standard directories
 export PROJECT_ROOT

@@ -1,0 +1,29 @@
+# MB4/MB5 cuBLASLt GEMM backend
+case_id=sq_2048
+family=square
+device=0
+dtype=bf16
+transa=N
+transb=T
+layout=NT
+m=2048
+n=2048
+k=2048
+lda=2048
+ldb=2048
+ldc=2048
+workspace_bytes=0
+heuristic_workspace_bytes=0
+algo_id=66
+warmup=10
+reps=30
+best_ms=0.022112
+mean_ms=0.0236832
+median_ms=0.02368
+flops=1.71799e+10
+bytes_model=5.03316e+07
+ai_model=341.333
+best_tflops=776.948
+mean_tflops=725.403
+median_tflops=725.501
+[mb4_mb5_cublaslt_baseline] Wrote CSV: /home/zoro/work/blackwell-gemm/results/raw/test_gemm_sweep/gemm/sq_2048_bf16_NT_ws0.csv

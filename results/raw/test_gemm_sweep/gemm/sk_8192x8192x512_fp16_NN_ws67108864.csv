@@ -1,0 +1,2 @@
+benchmark,case_id,family,device,dtype,a_type,b_type,c_type,d_type,compute_type,transa,transb,layout,m,n,k,lda,ldb,ldc,workspace_bytes,heuristic_workspace_bytes,algo_id,warmup,reps,best_ms,mean_ms,median_ms,flops,bytes_model,ai_model,best_tflops,mean_tflops,median_tflops
+mb4_mb5_cublaslt_baseline,sk_8192x8192x512,skinny_k,0,fp16,fp16,fp16,fp32,fp32,fp32,N,N,NN,8192,8192,512,8192,512,8192,67108864,0,66,10,30,0.070528,0.0737291,0.073696,6.87195e+10,5.53648e+08,124.121,974.357,932.054,932.472

@@ -1,0 +1,17 @@
+timestamp=2026-04-06T14:05:04+00:00
+campaign_id=test_gemm_sweep
+root_dir=/home/zoro/work/blackwell-gemm
+hostname=vllm-inference
+pwd=/home/zoro/work/blackwell-gemm
+user=zoro
+cuda_visible_devices=unset
+blackwell_gpu_index=unset
+git_commit=e7760deae2c4b43f2aface15d28a957909e99833
+git_status_begin
+ M benchmarks/tensor/mb4_mb5_cublaslt_baseline.cu
+ M scripts/run/run_gemm_case.sh
+ M scripts/run/run_gemm_sweep.sh
+?? bin/mb4_mb5_cublaslt_baseline
+?? results/raw/test_gemm_case/
+?? results/raw/test_gemm_sweep/
+git_status_end
