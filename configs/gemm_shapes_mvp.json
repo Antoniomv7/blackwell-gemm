@@ -1,0 +1,206 @@
+{
+    "warmup": 10,
+    "reps": 30,
+    "cases": [
+        {
+            "case_id": "sq_2048",
+            "family": "square",
+            "m": 2048,
+            "n": 2048,
+            "k": 2048,
+            "dtypes": [
+                "fp16",
+                "bf16"
+            ],
+            "layouts": [
+                "NN",
+                "NT"
+            ],
+            "workspaces": [
+                0,
+                8388608,
+                67108864
+            ]
+        },
+        {
+            "case_id": "sq_4096",
+            "family": "square",
+            "m": 4096,
+            "n": 4096,
+            "k": 4096,
+            "dtypes": [
+                "fp16",
+                "bf16"
+            ],
+            "layouts": [
+                "NN",
+                "NT"
+            ],
+            "workspaces": [
+                0,
+                8388608,
+                67108864
+            ]
+        },
+        {
+            "case_id": "sq_8192",
+            "family": "square",
+            "m": 8192,
+            "n": 8192,
+            "k": 8192,
+            "dtypes": [
+                "fp16",
+                "bf16"
+            ],
+            "layouts": [
+                "NN",
+                "NT"
+            ],
+            "workspaces": [
+                0,
+                8388608,
+                67108864
+            ]
+        },
+        {
+            "case_id": "ts_16384x512x4096",
+            "family": "tall_skinny",
+            "m": 16384,
+            "n": 512,
+            "k": 4096,
+            "dtypes": [
+                "fp16",
+                "bf16"
+            ],
+            "layouts": [
+                "NN",
+                "NT"
+            ],
+            "workspaces": [
+                0,
+                8388608,
+                67108864
+            ]
+        },
+        {
+            "case_id": "ts_32768x512x4096",
+            "family": "tall_skinny",
+            "m": 32768,
+            "n": 512,
+            "k": 4096,
+            "dtypes": [
+                "fp16",
+                "bf16"
+            ],
+            "layouts": [
+                "NN",
+                "NT"
+            ],
+            "workspaces": [
+                0,
+                8388608,
+                67108864
+            ]
+        },
+        {
+            "case_id": "ws_512x16384x4096",
+            "family": "wide_short",
+            "m": 512,
+            "n": 16384,
+            "k": 4096,
+            "dtypes": [
+                "fp16",
+                "bf16"
+            ],
+            "layouts": [
+                "NN",
+                "NT"
+            ],
+            "workspaces": [
+                0,
+                8388608,
+                67108864
+            ]
+        },
+        {
+            "case_id": "ws_512x32768x4096",
+            "family": "wide_short",
+            "m": 512,
+            "n": 32768,
+            "k": 4096,
+            "dtypes": [
+                "fp16",
+                "bf16"
+            ],
+            "layouts": [
+                "NN",
+                "NT"
+            ],
+            "workspaces": [
+                0,
+                8388608,
+                67108864
+            ]
+        },
+        {
+            "case_id": "sk_8192x8192x256",
+            "family": "skinny_k",
+            "m": 8192,
+            "n": 8192,
+            "k": 256,
+            "dtypes": [
+                "fp16",
+                "bf16"
+            ],
+            "layouts": [
+                "NN",
+                "NT"
+            ],
+            "workspaces": [
+                0,
+                8388608,
+                67108864
+            ]
+        },
+        {
+            "case_id": "sk_8192x8192x512",
+            "family": "skinny_k",
+            "m": 8192,
+            "n": 8192,
+            "k": 512,
+            "dtypes": [
+                "fp16",
+                "bf16"
+            ],
+            "layouts": [
+                "NN",
+                "NT"
+            ],
+            "workspaces": [
+                0,
+                8388608,
+                67108864
+            ]
+        },
+        {
+            "case_id": "fk_4096x4096x16384",
+            "family": "fat_k",
+            "m": 4096,
+            "n": 4096,
+            "k": 16384,
+            "dtypes": [
+                "fp16",
+                "bf16"
+            ],
+            "layouts": [
+                "NN",
+                "NT"
+            ],
+            "workspaces": [
+                0,
+                8388608,
+                67108864
+            ]
+        }
+    ]
+}

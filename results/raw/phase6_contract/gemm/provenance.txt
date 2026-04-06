@@ -1,0 +1,15 @@
+timestamp=2026-04-06T12:49:42+00:00
+campaign_id=phase6_contract
+root_dir=/home/zoro/work/blackwell-gemm
+hostname=vllm-inference
+pwd=/home/zoro/work/blackwell-gemm
+user=zoro
+cuda_visible_devices=unset
+blackwell_gpu_index=unset
+git_commit=fa6cfa6b0d617177eb5b6c55bc8b623f62dab357
+git_status_begin
+?? configs/
+?? results/raw/phase6_contract/
+?? scripts/run/run_gemm_case.sh
+?? scripts/run/run_gemm_sweep.sh
+git_status_end
