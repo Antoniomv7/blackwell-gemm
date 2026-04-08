@@ -1,0 +1,2 @@
+benchmark,device,n,bytes_in,bytes_out,bytes_effective,thread_count,block,grid,compute_iters,ai_nominal,warmup,reps,best_ms,mean_ms,median_ms,best_gflops,mean_gflops,median_gflops,bw_best_gbs,bw_mean_gbs,bw_median_gbs
+mb3_mem_compute_mix,0,67108864,268435456,3031040,2.71466e+08,757760,256,2960,8,3.95534,5,20,0.159712,0.16071,0.160624,6722.99,6681.22,6684.82,1699.73,1689.17,1690.07

@@ -1,0 +1,14 @@
+timestamp=2026-04-08T16:37:29+00:00
+campaign_id=test_full
+root_dir=/home/zoro/work/blackwell-gemm
+hostname=vllm-inference
+pwd=/home/zoro/work/blackwell-gemm
+user=zoro
+cuda_visible_devices=0
+blackwell_gpu_index=0
+git_commit=135696b3a4786a9f3f9f052e8ab542dcb8509281
+git_status_begin
+?? results/raw/mb31_20260408_163719/
+?? results/raw/test_full/
+?? scripts/campaign/
+git_status_end

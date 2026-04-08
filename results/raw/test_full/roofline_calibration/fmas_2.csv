@@ -1,0 +1,2 @@
+benchmark,device,n,bytes_per_array,bytes_effective,block,grid,fmas_per_load,ai_nominal,warmup,reps,best_ms,mean_ms,median_ms,best_gflops,mean_gflops,median_gflops,bw_best_gbs,bw_mean_gbs,bw_median_gbs
+mb10_ai_control,0,67108864,268435456,5.36871e+08,256,2960,2,0.5,5,20,0.168,0.168582,0.16864,1597.83,1592.31,1591.77,3195.66,3184.62,3183.53

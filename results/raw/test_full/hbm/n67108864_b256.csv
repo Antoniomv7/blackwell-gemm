@@ -1,0 +1,2 @@
+benchmark,device,n,bytes_per_array,effective_bytes,block,grid,warmup,reps,best_ms,mean_ms,median_ms,bw_best_gbs,bw_mean_gbs,bw_median_gbs
+mb34_stream_triad,0,67108864,268435456,8.05306e+08,256,2960,5,20,0.12608,0.127802,0.127616,6387.26,6301.22,6310.39
