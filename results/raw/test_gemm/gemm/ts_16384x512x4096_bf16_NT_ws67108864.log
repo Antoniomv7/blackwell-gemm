@@ -1,0 +1,29 @@
+# MB4/MB5 cuBLASLt GEMM backend
+case_id=ts_16384x512x4096
+family=tall_skinny
+device=0
+dtype=bf16
+transa=N
+transb=T
+layout=NT
+m=16384
+n=512
+k=4096
+lda=16384
+ldb=512
+ldc=16384
+workspace_bytes=67108864
+heuristic_workspace_bytes=0
+algo_id=66
+warmup=10
+reps=30
+best_ms=0.053536
+mean_ms=0.0550944
+median_ms=0.054992
+flops=6.87195e+10
+bytes_model=2.05521e+08
+ai_model=334.367
+best_tflops=1283.61
+mean_tflops=1247.3
+median_tflops=1249.63
+[mb4_mb5_cublaslt_baseline] Wrote CSV: /home/zoro/work/blackwell-gemm/results/raw/test_gemm/gemm/ts_16384x512x4096_bf16_NT_ws67108864.csv

@@ -1,0 +1,7 @@
+{
+  "hbm_ceiling_gbs": 6503.64,
+  "compute_ceiling_tflops": 1897.8,
+  "ridge_point_flop_per_byte": 291.80581951030496,
+  "num_points": 135,
+  "num_gemm_points": 120
+}

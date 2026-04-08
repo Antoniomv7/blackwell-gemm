@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-from __future__ import annotations
-
 import argparse
 import json
 from pathlib import Path
@@ -9,58 +7,69 @@ import pandas as pd
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Write a short text summary for a processed roofline campaign."
-    )
+    parser = argparse.ArgumentParser()
     parser.add_argument("--processed-campaign-dir", required=True)
     parser.add_argument("--output", required=True)
     args = parser.parse_args()
 
     processed = Path(args.processed_campaign_dir)
-    summary_json = processed / "roofline" / "empirical_roofline.json"
-    points_csv = processed / "roofline" / "roofline_points.csv"
+    output = Path(args.output)
+    output.parent.mkdir(parents=True, exist_ok=True)
 
-    if not summary_json.exists():
-        raise SystemExit(
-            f"[summarize_campaign] Missing summary JSON: {summary_json}"
-        )
-    if not points_csv.exists():
-        raise SystemExit(
-            f"[summarize_campaign] Missing points CSV: {points_csv}"
-        )
+    roofline_summary_path = processed / "roofline" / "empirical_roofline.json"
+    roofline_points_path = processed / "roofline" / "roofline_points.csv"
+    gemm_summary_path = processed / "tables" / "gemm_summary.csv"
 
-    with open(summary_json, "r", encoding="utf-8") as f:
+    with open(roofline_summary_path) as f:
         roof = json.load(f)
 
-    points = pd.read_csv(points_csv)
+    points = pd.read_csv(roofline_points_path)
+
+    hbm_ceiling_gbs = roof.get("hbm_ceiling_gbs")
+    compute_ceiling_tflops = roof.get("compute_ceiling_tflops")
+    ridge_point = roof.get("ridge_point_flop_per_byte")
+    num_points = roof.get("num_points")
+    num_gemm_points = roof.get("num_gemm_points")
 
     lines = []
-    lines.append(f"Campaign summary: {processed.name}")
+    lines.append(f"Campaign summary for: {processed.name}")
     lines.append("")
-    lines.append(f"HBM ceiling [GB/s]: {roof['hbm_ceiling_gbs']:.3f}")
-    lines.append(f"Compute ceiling [GFLOP/s]: {roof['compute_ceiling_gflops']:.3f}")
-    lines.append(f"Ridge point [FLOP/B]: {roof['ridge_point_flops_per_byte']:.6f}")
-    lines.append(f"Compute ceiling source: {roof['compute_ceiling_source']}")
-    lines.append(f"Total roofline points: {roof['num_points']}")
+    if hbm_ceiling_gbs is not None:
+        lines.append(f"HBM ceiling [GB/s]: {hbm_ceiling_gbs:.3f}")
+    if compute_ceiling_tflops is not None:
+        lines.append(f"Compute ceiling [TFLOP/s]: {compute_ceiling_tflops:.3f}")
+        lines.append(f"Compute ceiling [GFLOP/s]: {compute_ceiling_tflops * 1000.0:.3f}")
+    if ridge_point is not None:
+        lines.append(f"Ridge point [FLOP/B]: {ridge_point:.3f}")
+    if num_points is not None:
+        lines.append(f"Total roofline points: {num_points}")
+    if num_gemm_points is not None:
+        lines.append(f"GEMM roofline points: {num_gemm_points}")
+
     lines.append("")
 
-    for series, group in points.groupby("series"):
-        best = group.sort_values("perf_gflops", ascending=False).iloc[0]
-        lines.append(f"Series: {series}")
-        lines.append(f"  points: {len(group)}")
-        lines.append(f"  best point: {best['label']}")
-        lines.append(f"  best perf [GFLOP/s]: {best['perf_gflops']:.3f}")
-        lines.append(f"  AI [FLOP/B]: {best['ai_flops_per_byte']:.6f}")
-        if "efficiency_vs_roofline" in best.index:
+    if "benchmark" in points.columns and (points["benchmark"] == "gemm").any():
+        gemm_points = points[points["benchmark"] == "gemm"].copy()
+        best_gemm = gemm_points.sort_values("tflops", ascending=False).head(10)
+
+        lines.append("Top GEMM points by TFLOP/s:")
+        for _, row in best_gemm.iterrows():
             lines.append(
-                f"  efficiency vs roofline: {float(best['efficiency_vs_roofline']):.6f}"
+                f"  - {row['label']}: "
+                f"{row['tflops']:.3f} TFLOP/s, "
+                f"AI={row['ai_flop_per_byte']:.3f}, "
+                f"eff_vs_roofline={row['efficiency_vs_roofline']:.3f}"
             )
         lines.append("")
+    else:
+        lines.append("No GEMM points were found in roofline_points.csv.")
+        lines.append("")
 
-    out = Path(args.output)
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text("\n".join(lines), encoding="utf-8")
-    print(f"[summarize_campaign] Wrote summary: {out}")
+    if gemm_summary_path.exists():
+        lines.append(f"GEMM summary table: {gemm_summary_path}")
+
+    output.write_text("\n".join(lines))
+    print(f"[INFO] Saved campaign summary -> {output}")
 
 
 if __name__ == "__main__":

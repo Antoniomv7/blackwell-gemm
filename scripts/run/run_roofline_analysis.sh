@@ -5,49 +5,44 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 # shellcheck source=/dev/null
 source "$SCRIPT_DIR/../lib/common.sh"
 
-OUTPUT_CAMPAIGN_ID="${1:-}"
+CAMPAIGN_ID_ARG="${1:-}"
 
 source_repo_env_if_present
-prepare_campaign "$OUTPUT_CAMPAIGN_ID"
-
-HBM_SOURCE_CAMPAIGN="${HBM_SOURCE_CAMPAIGN:-$CAMPAIGN_ID}"
-CALIB_SOURCE_CAMPAIGN="${CALIB_SOURCE_CAMPAIGN:-$CAMPAIGN_ID}"
-
-HBM_CSV="$ROOT_DIR/results/raw/$HBM_SOURCE_CAMPAIGN/hbm/hbm_stream_triad.csv"
-AI_CSV="$ROOT_DIR/results/raw/$CALIB_SOURCE_CAMPAIGN/roofline_calibration/ai_sweep.csv"
-MIX_CSV="$ROOT_DIR/results/raw/$CALIB_SOURCE_CAMPAIGN/roofline_calibration/mem_compute_mix.csv"
+prepare_campaign "$CAMPAIGN_ID_ARG"
 
 ROOFLINE_DIR="$PROCESSED_DIR/roofline"
 FIGURES_DIR="$PROCESSED_DIR/figures"
 TABLES_DIR="$PROCESSED_DIR/tables"
+HEATMAP_DIR="$FIGURES_DIR/gemm_heatmaps"
 
 ensure_dir "$ROOFLINE_DIR"
 ensure_dir "$FIGURES_DIR"
 ensure_dir "$TABLES_DIR"
-write_provenance "$PROCESSED_DIR"
+ensure_dir "$HEATMAP_DIR"
 
 require_cmd python3
 
-echo "[INFO] Output campaign: $CAMPAIGN_ID"
-echo "[INFO] HBM source campaign: $HBM_SOURCE_CAMPAIGN"
-echo "[INFO] Calibration source campaign: $CALIB_SOURCE_CAMPAIGN"
-echo "[INFO] HBM CSV: $HBM_CSV"
-echo "[INFO] AI CSV: $AI_CSV"
-echo "[INFO] MIX CSV: $MIX_CSV"
-
 python3 "$ROOT_DIR/analysis/build_empirical_roofline.py" \
-  --hbm-csv "$HBM_CSV" \
-  --ai-csv "$AI_CSV" \
-  --mix-csv "$MIX_CSV" \
-  --processed-campaign-dir "$PROCESSED_DIR"
+    --raw-campaign-dir "$RAW_DIR" \
+    --processed-campaign-dir "$PROCESSED_DIR"
 
 python3 "$ROOT_DIR/analysis/plot_roofline.py" \
-  --points-csv "$ROOFLINE_DIR/roofline_points.csv" \
-  --ridge-json "$ROOFLINE_DIR/empirical_roofline.json" \
-  --out "$FIGURES_DIR/roofline.png"
+    --roofline-points "$ROOFLINE_DIR/roofline_points.csv" \
+    --roofline-summary "$ROOFLINE_DIR/empirical_roofline.json" \
+    --output "$FIGURES_DIR/roofline.png"
+
+if [[ -f "$RAW_DIR/gemm/gemm_sweep.csv" ]]; then
+    python3 "$ROOT_DIR/analysis/summarize_gemm.py" \
+        --gemm-csv "$RAW_DIR/gemm/gemm_sweep.csv" \
+        --output "$TABLES_DIR/gemm_summary.csv"
+
+    python3 "$ROOT_DIR/analysis/plot_gemm_heatmaps.py" \
+        --gemm-csv "$RAW_DIR/gemm/gemm_sweep.csv" \
+        --output-dir "$HEATMAP_DIR"
+fi
 
 python3 "$ROOT_DIR/analysis/summarize_campaign.py" \
-  --processed-campaign-dir "$PROCESSED_DIR" \
-  --output "$TABLES_DIR/campaign_summary.txt"
+    --processed-campaign-dir "$PROCESSED_DIR" \
+    --output "$TABLES_DIR/campaign_summary.txt"
 
 echo "[INFO] Roofline analysis completed for campaign: $CAMPAIGN_ID"

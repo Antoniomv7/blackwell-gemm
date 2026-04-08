@@ -1,0 +1,22 @@
+Campaign summary for: test_phase8
+
+HBM ceiling [GB/s]: 6503.640
+Compute ceiling [TFLOP/s]: 1897.800
+Compute ceiling [GFLOP/s]: 1897800.000
+Ridge point [FLOP/B]: 291.806
+Total roofline points: 135
+GEMM roofline points: 120
+
+Top GEMM points by TFLOP/s:
+  - sq_8192::bf16::NT::ws0: 1897.800 TFLOP/s, AI=1365.330, eff_vs_roofline=1.000
+  - sq_8192::bf16::NT::ws67108864: 1896.970 TFLOP/s, AI=1365.330, eff_vs_roofline=1.000
+  - sq_8192::bf16::NT::ws8388608: 1868.090 TFLOP/s, AI=1365.330, eff_vs_roofline=0.984
+  - sq_8192::bf16::NN::ws67108864: 1849.290 TFLOP/s, AI=1365.330, eff_vs_roofline=0.974
+  - sq_8192::bf16::NN::ws8388608: 1846.800 TFLOP/s, AI=1365.330, eff_vs_roofline=0.973
+  - sq_8192::bf16::NN::ws0: 1842.250 TFLOP/s, AI=1365.330, eff_vs_roofline=0.971
+  - sq_8192::fp16::NT::ws8388608: 1840.470 TFLOP/s, AI=1365.330, eff_vs_roofline=0.970
+  - sq_8192::fp16::NT::ws0: 1824.640 TFLOP/s, AI=1365.330, eff_vs_roofline=0.961
+  - sq_8192::fp16::NT::ws67108864: 1817.300 TFLOP/s, AI=1365.330, eff_vs_roofline=0.958
+  - sq_8192::fp16::NN::ws8388608: 1805.840 TFLOP/s, AI=1365.330, eff_vs_roofline=0.952
+
+GEMM summary table: /home/zoro/work/blackwell-gemm/results/processed/test_phase8/tables/gemm_summary.csv
