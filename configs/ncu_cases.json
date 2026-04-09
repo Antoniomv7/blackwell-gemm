@@ -1,0 +1,90 @@
+{
+    "warmup": 10,
+    "reps": 20,
+    "cases": [
+        {
+            "case_id": "sq_8192_fp16_NN_ws64m",
+            "family": "square",
+            "m": 8192,
+            "n": 8192,
+            "k": 8192,
+            "dtype": "fp16",
+            "transa": "N",
+            "transb": "N",
+            "lda": 0,
+            "ldb": 0,
+            "ldc": 0,
+            "workspace_bytes": 67108864
+        },
+        {
+            "case_id": "sq_8192_bf16_NT_ws64m",
+            "family": "square",
+            "m": 8192,
+            "n": 8192,
+            "k": 8192,
+            "dtype": "bf16",
+            "transa": "N",
+            "transb": "T",
+            "lda": 0,
+            "ldb": 0,
+            "ldc": 0,
+            "workspace_bytes": 67108864
+        },
+        {
+            "case_id": "ts_32768x512x4096_fp16_NN_ws64m",
+            "family": "tall_skinny",
+            "m": 32768,
+            "n": 512,
+            "k": 4096,
+            "dtype": "fp16",
+            "transa": "N",
+            "transb": "N",
+            "lda": 0,
+            "ldb": 0,
+            "ldc": 0,
+            "workspace_bytes": 67108864
+        },
+        {
+            "case_id": "ws_512x32768x4096_fp16_NT_ws64m",
+            "family": "wide_short",
+            "m": 512,
+            "n": 32768,
+            "k": 4096,
+            "dtype": "fp16",
+            "transa": "N",
+            "transb": "T",
+            "lda": 0,
+            "ldb": 0,
+            "ldc": 0,
+            "workspace_bytes": 67108864
+        },
+        {
+            "case_id": "sk_8192x8192x256_bf16_NN_ws0",
+            "family": "skinny_k",
+            "m": 8192,
+            "n": 8192,
+            "k": 256,
+            "dtype": "bf16",
+            "transa": "N",
+            "transb": "N",
+            "lda": 0,
+            "ldb": 0,
+            "ldc": 0,
+            "workspace_bytes": 0
+        },
+        {
+            "case_id": "fk_4096x4096x16384_bf16_NT_ws64m",
+            "family": "fat_k",
+            "m": 4096,
+            "n": 4096,
+            "k": 16384,
+            "dtype": "bf16",
+            "transa": "N",
+            "transb": "T",
+            "lda": 0,
+            "ldb": 0,
+            "ldc": 0,
+            "workspace_bytes": 67108864
+        }
+    ]
+}

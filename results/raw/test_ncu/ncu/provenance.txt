@@ -1,0 +1,14 @@
+timestamp=2026-04-09T10:46:02+00:00
+campaign_id=test_ncu
+root_dir=/home/zoro/work/blackwell-gemm
+hostname=vllm-inference
+pwd=/home/zoro/work/blackwell-gemm
+user=zoro
+cuda_visible_devices=unset
+blackwell_gpu_index=unset
+git_commit=d65c4ff54443395925dfe2acb6b221c21863061f
+git_status_begin
+?? configs/ncu_cases.json
+?? results/raw/test_ncu/
+?? scripts/profile/
+git_status_end
